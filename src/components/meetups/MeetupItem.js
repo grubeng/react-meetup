@@ -1,7 +1,15 @@
 import classes from './MeetupItem.module.css';
 import Card from '../ui/Card';
+import { useDispatch } from 'react-redux';
+import { addMeetupToFavourites } from '../../store/meetupSlice';
 
 export default function MeetupItem({ meetup }) {
+  const dispatch = useDispatch();
+
+  function handleAddToFavourites() {
+    dispatch(addMeetupToFavourites(meetup));
+  }
+
   return (
     <li className={classes.item} data-test="meet-up-item">
       <Card>
@@ -14,7 +22,7 @@ export default function MeetupItem({ meetup }) {
           <p>{meetup?.description}</p>
         </div>
         <div className={classes.actions}>
-          <button>Add to favorites</button>
+          <button onClick={handleAddToFavourites}>Add to favorites</button>
         </div>
       </Card>
     </li>
