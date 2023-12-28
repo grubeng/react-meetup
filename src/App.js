@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 import AllMeetupsPage from './pages/AllMeetupsPage';
-import FavoritesPage from './pages/Favorites';
+import FavouritesPage from './pages/Favourites';
 import NewMeetupsPage from './pages/NewMeetup';
 import {
   ALL_MEETUP_PAGE,
@@ -19,7 +19,7 @@ function App() {
     let currentPageComponent = <AllMeetupsPage />;
     switch (page) {
       case FAVOURITES_PAGE:
-        currentPageComponent = <FavoritesPage />;
+        currentPageComponent = <FavouritesPage />;
         break;
       case NEW_MEETUP_PAGE:
         currentPageComponent = <NewMeetupsPage />;
