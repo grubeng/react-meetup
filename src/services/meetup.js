@@ -1,6 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { addMeetups } from '../store/meetupSlice';
-import { createListenerMiddleware } from '@reduxjs/toolkit';
 import store from '../store/store';
 
 export const meetupApi = createApi({
