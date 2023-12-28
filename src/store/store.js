@@ -1,12 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
 import meetupSlice from './meetupSlice';
-import { meetupApi } from '../services/meetup';
+import { meetupApi, setMeetUpsMiddleware } from '../services/meetup';
 
 export default configureStore({
   reducer: {
-    meetUp: meetupSlice,
+    meetup: meetupSlice,
     meetupApi: meetupApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(meetupApi.middleware),
+    getDefaultMiddleware().concat([meetupApi.middleware, setMeetUpsMiddleware]),
 });
