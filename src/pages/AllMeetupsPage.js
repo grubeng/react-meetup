@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import MeetupItem from '../components/meetups/MeetupItem';
 import { useGetMeetupsQuery } from '../services/meetup';
 import classes from './../components/meetups/MeetupList.module.css';
