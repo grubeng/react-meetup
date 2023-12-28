@@ -18,9 +18,18 @@ const meetupSlice = createSlice({
         [action.payload.id]: action.payload,
       };
     },
+    removeMeetupFromFavourites: (state, action) => {
+      const newFavourites = { ...state.favourites };
+      delete newFavourites[action.payload.id];
+      state.favourites = newFavourites;
+    },
   },
 });
 
-export const { addMeetups, addMeetup, addMeetupToFavourites } =
-  meetupSlice.actions;
+export const {
+  addMeetups,
+  addMeetup,
+  addMeetupToFavourites,
+  removeMeetupFromFavourites,
+} = meetupSlice.actions;
 export default meetupSlice.reducer;

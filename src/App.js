@@ -5,7 +5,7 @@ import FavoritesPage from './pages/Favorites';
 import NewMeetupsPage from './pages/NewMeetup';
 import {
   ALL_MEETUP_PAGE,
-  FAVORITES_PAGE,
+  FAVOURITES_PAGE,
   NEW_MEETUP_PAGE,
 } from './utils/constants';
 
@@ -18,7 +18,7 @@ function App() {
   function getCurrentPageComponent() {
     let currentPageComponent = <AllMeetupsPage />;
     switch (page) {
-      case FAVORITES_PAGE:
+      case FAVOURITES_PAGE:
         currentPageComponent = <FavoritesPage />;
         break;
       case NEW_MEETUP_PAGE:

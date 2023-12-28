@@ -1,6 +1,6 @@
 import {
   ALL_MEETUP_PAGE,
-  FAVORITES_PAGE,
+  FAVOURITES_PAGE,
   NEW_MEETUP_PAGE,
 } from './../../utils/constants';
 
@@ -24,8 +24,8 @@ export default function MainNavigation({ setPage }) {
             </a>
           </li>
           <li>
-            <a href="#" onClick={() => setPage(FAVORITES_PAGE)}>
-              My Favorites
+            <a href="#" onClick={() => setPage(FAVOURITES_PAGE)}>
+              My Favourites
               <span className={classes.badge}>{0}</span>
             </a>
           </li>

@@ -1,13 +1,26 @@
 import classes from './MeetupItem.module.css';
 import Card from '../ui/Card';
-import { useDispatch } from 'react-redux';
-import { addMeetupToFavourites } from '../../store/meetupSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  addMeetupToFavourites,
+  removeMeetupFromFavourites,
+} from '../../store/meetupSlice';
 
 export default function MeetupItem({ meetup }) {
+  const favourites = useSelector((state) => state.meetup.favourites);
   const dispatch = useDispatch();
 
   function handleAddToFavourites() {
     dispatch(addMeetupToFavourites(meetup));
+  }
+
+  function handleRemoveFromFavourites() {
+    dispatch(removeMeetupFromFavourites(meetup));
+  }
+
+  function isFavourite(id) {
+    const favouriteMeetupIds = Object.keys(favourites);
+    return favouriteMeetupIds.includes(id);
   }
 
   return (
@@ -21,9 +34,17 @@ export default function MeetupItem({ meetup }) {
           <address>{meetup?.address}</address>
           <p>{meetup?.description}</p>
         </div>
-        <div className={classes.actions}>
-          <button onClick={handleAddToFavourites}>Add to favorites</button>
-        </div>
+        {!isFavourite(meetup.id) ? (
+          <div className={classes.actions}>
+            <button onClick={handleAddToFavourites}>Add to favourites</button>
+          </div>
+        ) : (
+          <div className={classes.actions}>
+            <button onClick={handleRemoveFromFavourites}>
+              Remove from favourites
+            </button>
+          </div>
+        )}
       </Card>
     </li>
   );
