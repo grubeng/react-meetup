@@ -9,6 +9,9 @@ const meetupSlice = createSlice({
     addMeetups: (state, action) => {
       state.meetups = { ...state.meetups, ...action.payload };
     },
+    addMeetup: (state, action) => {
+      state.meetups = { ...state.meetups, [action.payload.id]: action.payload };
+    },
   },
 });
 
