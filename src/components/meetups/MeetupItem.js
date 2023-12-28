@@ -1,11 +1,8 @@
-import { useFetch } from './../../util-hooks/useFetch';
 import classes from './MeetupItem.module.css';
 import Card from '../ui/Card';
 
 export default function MeetupItem() {
-  const { data } = useFetch({
-    url: '/data.json',
-  });
+  const data = {};
 
   if (!data) return <p>Loading...</p>;
   let [item] = data;
