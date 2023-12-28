@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialState = { meetups: {} };
+const initialState = { meetups: {}, favourites: {} };
 
 const meetupSlice = createSlice({
   name: 'meetup',
@@ -11,6 +11,12 @@ const meetupSlice = createSlice({
     },
     addMeetup: (state, action) => {
       state.meetups = { ...state.meetups, [action.payload.id]: action.payload };
+    },
+    addMeetupToFavourites: (state, action) => {
+      state.meetups = {
+        ...state.favourites,
+        [action.payload.id]: action.payload,
+      };
     },
   },
 });
