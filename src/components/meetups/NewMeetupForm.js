@@ -1,9 +1,26 @@
+import { useDispatch } from 'react-redux';
 import Card from '../ui/Card';
 import classes from './NewMeetupForm.module.css';
+import { addMeetup } from '../../store/meetupSlice';
+import { generateUniqueId } from '../../utils/meetup';
 
 export default function NewMeetupForm() {
+  const dispatch = useDispatch();
+
   function submitHandler(event) {
     event.preventDefault();
+    try {
+      const newMeetup = {
+        id: generateUniqueId(),
+        title: event.target.querySelector('#title').value,
+        image: event.target.querySelector('#image').value,
+        address: event.target.querySelector('#address').value,
+        description: event.target.querySelector('#description').value,
+      };
+      dispatch(addMeetup(newMeetup));
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   return (
