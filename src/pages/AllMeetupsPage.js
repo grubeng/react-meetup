@@ -18,7 +18,7 @@ export default function AllMeetupsPage() {
       <ul className={classes.list}>
         {meetups &&
           Object.values(meetups).map((meetup, i) => (
-            <MeetupItem key={meetup.id + 'card'} />
+            <MeetupItem meetup={meetup} key={meetup.id + 'card'} />
           ))}
       </ul>
     </section>
