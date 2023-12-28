@@ -8,17 +8,21 @@ export const meetupApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: window.location.origin + '/' }),
   endpoints: (builder) => ({
     getMeetups: builder.query({
-      query: (name) => 'data.json',
+      query: () => 'data.json',
     }),
   }),
 });
 
-export const setMeetUpsMiddleware = (storeApi) => (next) => (action) => {
+export const setMeetUpsMiddleware = (_) => (next) => (action) => {
   const isGetMeetUpsFulfilled =
     meetupApi.endpoints.getMeetups.matchFulfilled(action);
   if (!isGetMeetUpsFulfilled) return next(action);
   if (!Array.isArray(action.payload)) return next(action);
-  store.dispatch(addMeetups(action.payload));
+  let retrievedMeetups = {};
+  action.payload.forEach((meetup) => {
+    retrievedMeetups = { ...retrievedMeetups, [meetup.id]: meetup };
+  });
+  store.dispatch(addMeetups(retrievedMeetups));
   return next(action);
 };
 
