@@ -16,7 +16,7 @@ export default function AllMeetupsPage() {
       <h1>All Meetups</h1>
       <ul className={classes.list}>
         {meetups &&
-          Object.values(meetups).map((meetup, i) => (
+          Object.values(meetups).map((meetup) => (
             <MeetupItem meetup={meetup} key={meetup.id + 'card'} />
           ))}
       </ul>
