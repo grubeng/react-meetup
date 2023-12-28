@@ -1,6 +1,5 @@
-import MeetupItem from "../components/meetups/MeetupItem";
-import classes from "./../components/meetups/MeetupList.module.css";
-
+import MeetupItem from '../components/meetups/MeetupItem';
+import classes from './../components/meetups/MeetupList.module.css';
 
 export default function AllMeetupsPage() {
   return (

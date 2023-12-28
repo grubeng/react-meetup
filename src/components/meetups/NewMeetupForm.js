@@ -1,5 +1,5 @@
-import Card from "../ui/Card";
-import classes from "./NewMeetupForm.module.css";
+import Card from '../ui/Card';
+import classes from './NewMeetupForm.module.css';
 
 export default function NewMeetupForm() {
   function submitHandler(event) {
