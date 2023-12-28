@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 
 import AllMeetupsPage from './pages/AllMeetupsPage';
 import FavouritesPage from './pages/Favourites';
@@ -11,9 +11,28 @@ import {
 
 import MainNavigation from './components/layout/MainNavigation';
 import Layout from './components/layout/Layout';
+import classes from './App.module.css';
 
 function App() {
   const [page, setPage] = useState(ALL_MEETUP_PAGE);
+  const [showHeader, setShowHeader] = useState(true);
+  const [previousYPosition, setPreviousYPosition] = useState(window.scrollY);
+
+  const handleVisibility = useCallback(() => {
+    if (window.scrollY > previousYPosition) {
+      setShowHeader(false);
+    } else {
+      setShowHeader(true);
+    }
+    setPreviousYPosition(window.scrollY);
+  }, [previousYPosition]);
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleVisibility);
+    return () => {
+      window.removeEventListener('scroll', handleVisibility);
+    };
+  }, [handleVisibility]);
 
   function getCurrentPageComponent() {
     let currentPageComponent = <AllMeetupsPage />;
@@ -33,8 +52,16 @@ function App() {
 
   return (
     <div data-test="app">
-      <MainNavigation setPage={setPage} />
-      <Layout>{getCurrentPageComponent()}</Layout>
+      <div
+        className={
+          showHeader ? classes.mainNavigation : classes.hiddenMainNavigation
+        }
+      >
+        <MainNavigation setPage={setPage} />
+      </div>
+      <div className={showHeader ? classes.shiftedDownLayout : classes.layout}>
+        <Layout>{getCurrentPageComponent()}</Layout>
+      </div>
     </div>
   );
 }

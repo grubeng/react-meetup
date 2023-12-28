@@ -1,0 +1,21 @@
+.hiddenMainNavigation {
+  position: fixed;
+  top: -5rem;
+  width: 100%;
+  transition: top 0.3s ease-in-out;
+}
+
+.mainNavigation {
+  position: fixed;
+  top: 0;
+  transition: top 0.3s ease-in-out;
+  width: 100%;
+}
+
+.shiftedDownLayout {
+  margin-top: 5rem;
+}
+
+.layout {
+  margin-top: 0;
+}

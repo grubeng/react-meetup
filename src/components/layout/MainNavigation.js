@@ -7,8 +7,9 @@ import {
 
 import classes from './MainNavigation.module.css';
 
-export default function MainNavigation({ setPage }) {
+export default function MainNavigation({ setPage, className }) {
   const favourites = useSelector((state) => state.meetup.favourites);
+
   return (
     <header className={classes.header} data-test="navigation-header">
       <div className={classes.logo}>React Meetups</div>
