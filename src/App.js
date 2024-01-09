@@ -1,14 +1,4 @@
 import { useState, useEffect, useCallback } from 'react';
-
-import AllMeetupsPage from './pages/AllMeetupsPage';
-import FavouritesPage from './pages/Favourites';
-import NewMeetupsPage from './pages/NewMeetup';
-import {
-  ALL_MEETUP_PAGE,
-  FAVOURITES_PAGE,
-  NEW_MEETUP_PAGE,
-} from './utils/constants';
-
 import MainNavigation from './components/layout/MainNavigation';
 import Layout from './components/layout/Layout';
 import classes from './App.module.css';
