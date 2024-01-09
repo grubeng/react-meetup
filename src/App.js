@@ -12,9 +12,9 @@ import {
 import MainNavigation from './components/layout/MainNavigation';
 import Layout from './components/layout/Layout';
 import classes from './App.module.css';
+import { Outlet } from 'react-router-dom';
 
 function App() {
-  const [page, setPage] = useState(ALL_MEETUP_PAGE);
   const [showHeader, setShowHeader] = useState(true);
   const [previousYPosition, setPreviousYPosition] = useState(window.scrollY);
 
@@ -34,22 +34,6 @@ function App() {
     };
   }, [handleVisibility]);
 
-  function getCurrentPageComponent() {
-    let currentPageComponent = <AllMeetupsPage />;
-    switch (page) {
-      case FAVOURITES_PAGE:
-        currentPageComponent = <FavouritesPage />;
-        break;
-      case NEW_MEETUP_PAGE:
-        currentPageComponent = <NewMeetupsPage />;
-        break;
-      default:
-        currentPageComponent = <AllMeetupsPage />;
-    }
-
-    return currentPageComponent;
-  }
-
   return (
     <div data-test="app">
       <div
@@ -57,10 +41,12 @@ function App() {
           showHeader ? classes.mainNavigation : classes.hiddenMainNavigation
         }
       >
-        <MainNavigation setPage={setPage} />
+        <MainNavigation />
       </div>
       <div className={showHeader ? classes.shiftedDownLayout : classes.layout}>
-        <Layout>{getCurrentPageComponent()}</Layout>
+        <Layout>
+          <Outlet />
+        </Layout>
       </div>
     </div>
   );

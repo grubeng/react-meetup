@@ -1,13 +1,9 @@
 import { useSelector } from 'react-redux';
-import {
-  ALL_MEETUP_PAGE,
-  FAVOURITES_PAGE,
-  NEW_MEETUP_PAGE,
-} from './../../utils/constants';
 
 import classes from './MainNavigation.module.css';
+import { Link } from 'react-router-dom';
 
-export default function MainNavigation({ setPage, className }) {
+export default function MainNavigation({ className }) {
   const favourites = useSelector((state) => state.meetup.favourites);
 
   return (
@@ -16,23 +12,19 @@ export default function MainNavigation({ setPage, className }) {
       <nav>
         <ul>
           <li>
-            <a href="#" onClick={() => setPage(ALL_MEETUP_PAGE)}>
-              All Meetups
-            </a>
+            <Link to={''}> All Meetups</Link>
           </li>
 
           <li>
-            <a href="#" onClick={() => setPage(NEW_MEETUP_PAGE)}>
-              Add New Meetup
-            </a>
+            <Link to={'new'}>Add New Meetup</Link>
           </li>
           <li>
-            <a href="#" onClick={() => setPage(FAVOURITES_PAGE)}>
+            <Link to={'favourites'}>
               My Favourites
               <span className={classes.badge}>
                 {Object.keys(favourites).length}
               </span>
-            </a>
+            </Link>
           </li>
         </ul>
       </nav>
