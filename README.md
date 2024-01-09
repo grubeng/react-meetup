@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# React Meetup
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Basic meetup app powered by React.js.
 
 ## Available Scripts
 
@@ -16,7 +16,7 @@ You may also see any lint errors in the console.
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.\
+Runs all unit tests.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `npm run build`
@@ -39,32 +39,22 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+### `npm run format`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Formats all files (outside [.prettierignore](https://github.com/grubeng/react-meetup/blob/master/.prettierignore))
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## State management solution
 
-### Code Splitting
+This app uses [Redux](https://redux.js.org/) and the [Redux toolkit](https://redux-toolkit.js.org/) to manage its state.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Routing
 
-### Analyzing the Bundle Size
+This app uses [React router](https://reactrouter.com/en/main) as a solution for client side routing.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Unit tests
 
-### Making a Progressive Web App
+This app uses [Jest.js](https://jestjs.io/) and the [React testing library](https://testing-library.com/docs/react-testing-library/intro/) for unit testing.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Code formatting
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This repo comes with a [Prettier](https://prettier.io/) configuration to ensure uniform code formatting.
